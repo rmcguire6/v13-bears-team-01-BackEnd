@@ -1,3 +1,5 @@
 node_modules
-server/db/location-reminders
+/config
+database.sqlite3
+
 

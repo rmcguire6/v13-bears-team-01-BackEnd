@@ -18,6 +18,11 @@
   },
   "homepage": "https://github.com/chingu-voyages/v13-bears-team-01-BackEnd#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "sequelize": "^5.21.2",
+    "sequelize-cli": "^5.5.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.1"
   }
 }
