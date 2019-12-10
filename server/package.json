@@ -1,0 +1,23 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Server",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chingu-voyages/v13-bears-team-01-BackEnd.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chingu-voyages/v13-bears-team-01-BackEnd/issues"
+  },
+  "homepage": "https://github.com/chingu-voyages/v13-bears-team-01-BackEnd#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
