@@ -3,7 +3,6 @@ import { List } from 'semantic-ui-react'
 
 const ReminderItem = (props) => {
   return (
-
     <section>
       <List.Item><List.Icon name='square' />
         {props.text ? props.text : ''}
