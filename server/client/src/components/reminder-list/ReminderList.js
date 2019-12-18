@@ -5,10 +5,9 @@ const ReminderList = (props) => {
   return props.reminders.map((reminder) => (
     <ReminderItem
       key={reminder.id}
-      id={reminder.reminder}
+      id={reminder.id}
       text={reminder.text}
       location={reminder.location}
-
       list={reminder.list}
     />
   ))

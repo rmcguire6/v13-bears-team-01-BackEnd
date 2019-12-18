@@ -6,9 +6,10 @@ const ReminderItem = (props) => {
 
     <section>
       <List.Item><List.Icon name='square' />
-        {props.reminder.text}
-        {props.reminder.location ? <List.Icon name='location arrow' /> : ''}
-        {props.reminder.date ? props.reminder.date : ''}
+        {props.text ? props.text : ''}
+        {props.location ? <List.Icon name='location arrow' /> : ''}
+        {props.date ? props.reminder.date : ''}
+        {props.list ? props.reminder.list : ''}
       </List.Item>
     </section>
   )
