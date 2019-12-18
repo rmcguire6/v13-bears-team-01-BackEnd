@@ -1,23 +1,28 @@
 import React, { useState } from 'react'
 import { Button, Form, Grid, Segment } from 'semantic-ui-react'
-import DateTimePicker from 'react-datetime-picker'
+import Date from '../date/Date'
 
 const ReminderForm = (props) => {
-  console.log('rf', props)
   const [text, setText] = useState(props.reminder ? props.reminder.text : '')
-  const [date, setDate] = useState(props.reminder ? props.reminder.date : null)
+  const [date, setDate] = useState(props.reminder ? props.reminder.date : '')
   const [location, setLocation] = useState(props.reminder ? props.reminder.location : '')
   const [list, setList] = useState(props.reminder ? props.reminder.list : '')
   const [isCompleted, setIsCompleted] = useState(false)
 
+  const onChange = (newDate) => {
+    if (newDate) {
+      setDate(newDate.toString())
+    } else {
+      setDate('')
+    }
+  }
   const onSubmit = (e) => {
     e.preventDefault()
     setIsCompleted(false)
-    props.onSubmit({ text, date, location, list, isCompleted })
+    props.onSubmit({ text, location, date, list, isCompleted })
     setText('')
-    setDate(null)
-    setLocation(null)
-    setList(null)
+    setLocation('')
+    setList('')
   }
 
   return (
@@ -50,14 +55,7 @@ const ReminderForm = (props) => {
               value={list}
               onChange={(e) => setList(e.target.value)}
             />
-            <Segment>
-              <DateTimePicker
-                className='form-element'
-                value={date}
-                onChange={setDate}
-              />
-            </Segment>
-
+            <Date onChange={onChange} />
           </Segment>
           <Button className='button' fluid size='medium' onClick={onSubmit}>Done</Button>
         </Form>
