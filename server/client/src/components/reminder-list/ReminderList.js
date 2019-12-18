@@ -1,9 +1,16 @@
 import React from 'react'
 import ReminderItem from '../../components/reminder-item/ReminderItem'
-import testReminders from '../../tests/fixtures/reminders'
-const ReminderList = () => {
-  return testReminders.map((reminder) => (
-    <ReminderItem key={reminder.id} reminder={reminder} />
+
+const ReminderList = (props) => {
+  return props.reminders.map((reminder) => (
+    <ReminderItem
+      key={reminder.id}
+      id={reminder.reminder}
+      text={reminder.text}
+      location={reminder.location}
+
+      list={reminder.list}
+    />
   ))
 }
 export { ReminderList as default }
