@@ -7,6 +7,7 @@ const ReminderList = (props) => {
       key={reminder.id}
       id={reminder.id}
       text={reminder.text}
+      date={reminder.date}
       location={reminder.location}
       list={reminder.list}
     />

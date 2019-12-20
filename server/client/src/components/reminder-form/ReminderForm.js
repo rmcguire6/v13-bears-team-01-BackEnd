@@ -3,6 +3,7 @@ import { Button, Form, Grid, Segment } from 'semantic-ui-react'
 import Date from '../date/Date'
 
 const ReminderForm = (props) => {
+  console.log('rf', props.reminder)
   const [text, setText] = useState(props.reminder ? props.reminder.text : '')
   const [date, setDate] = useState(props.reminder ? props.reminder.date : '')
   const [location, setLocation] = useState(props.reminder ? props.reminder.location : '')
@@ -12,8 +13,6 @@ const ReminderForm = (props) => {
   const onChange = (newDate) => {
     if (newDate) {
       setDate(newDate.toString())
-    } else {
-      setDate('')
     }
   }
   const onSubmit = (e) => {
