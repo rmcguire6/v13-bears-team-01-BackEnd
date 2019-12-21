@@ -1,11 +1,13 @@
-import React from 'react'
-import { useParams } from 'react-router-dom'
+import React, { useContext } from 'react'
+import RemindersContext from '../../context/reminders-context'
+import { useParams, useHistory } from 'react-router-dom'
 import { Button, Container, Header, List } from 'semantic-ui-react'
 
-const ReminderPage = (props) => {
+const ReminderPage = () => {
+  const { reminders } = useContext(RemindersContext)
   const { id } = useParams()
-  const currentReminder = props.reminders.find(reminder => reminder.id === id)
-
+  const history = useHistory()
+  const currentReminder = reminders.find(reminder => reminder.id === id)
   return (
     <Container text>
       <section>

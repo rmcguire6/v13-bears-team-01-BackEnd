@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import RemindersContext from './context/reminders-context'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import HomePage from './pages/home-page/HomePage'
 import CreateReminder from './pages/create-reminder-page/CreateReminder'
@@ -7,32 +8,35 @@ import ReminderPage from './pages/reminder-page/ReminderPage'
 const App = () => {
   const [reminders, setReminders] = useState([])
   useEffect(() => {
-    const storedReminders = JSON.parse(localStorage.getItem('reminders'))
-    if (storedReminders) {
-      setReminders(storedReminders)
+    const reminders = JSON.parse(localStorage.getItem('tasks'))
+    if (reminders) {
+      setReminders(reminders)
     }
   }, [])
   useEffect(() => {
-    localStorage.setItem('reminders', JSON.stringify(reminders))
+    localStorage.setItem('tasks', JSON.stringify(reminders))
+    console.log(reminders)
   }, [reminders])
 
   return (
-    <Router>
-      <Switch>
-        <Route path='/' exact>
-          <HomePage reminders={reminders} />
-        </Route>
-        <Route path='/create'>
-          <CreateReminder reminders={reminders} setReminders={setReminders} />
-        </Route>
-        <Route path='/edit/:id'>
-          <EditReminder reminders={reminders} setReminders={setReminders} />
-        </Route>
-        <Route path='/reminder/:id'>
-          <ReminderPage reminders={reminders} setReminders={setReminders} />
-        </Route>
-      </Switch>
-    </Router>
+    <RemindersContext.Provider value={{ reminders, setReminders }}>
+      <Router>
+        <Switch>
+          <Route path='/' exact>
+            <HomePage />
+          </Route>
+          <Route path='/create'>
+            <CreateReminder />
+          </Route>
+          <Route path='/edit/:id'>
+            <EditReminder />
+          </Route>
+          <Route path='/reminder/:id'>
+            <ReminderPage />
+          </Route>
+        </Switch>
+      </Router>
+    </RemindersContext.Provider>
   )
 }
 export default App
