@@ -8,14 +8,15 @@ import { Container, Header } from 'semantic-ui-react'
 const CreateReminder = () => {
   const { reminders, setReminders } = useContext(RemindersContext)
   const history = useHistory()
-  const onSubmit = ({ id, text, date, location, list, isCompleted }) => {
+  const onSubmit = ({ text, date, location, list }) => {
     const reminder = {
       id: uuid(),
       text,
       date,
       location,
       list,
-      isCompleted
+      createdAt: null,
+      updatedAt: null
     }
     setReminders(reminders.concat(reminder))
     history.push('/')
