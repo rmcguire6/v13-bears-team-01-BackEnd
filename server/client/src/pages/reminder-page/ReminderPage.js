@@ -13,13 +13,13 @@ const ReminderPage = () => {
       <section>
         <Header as='h3' textAlign='center'>{currentReminder.text}</Header>
         <List celled>
-          <List.Item><List.Icon name='clock outline' />{currentReminder.date}</List.Item>
+          <List.Item><List.Icon name='clock' />{currentReminder.date}</List.Item>
           <List.Item> <List.Icon name='location arrow' />{currentReminder.location ? '' : 'Remind me at a Location'}</List.Item>
           <List.Item><List.Icon name='flag' />{currentReminder.list}</List.Item>
         </List>
       </section>
       <section>
-        <Button content='Complete' size='large' color='teal' />
+        <Button onClick={() => history.push('/')} content='Complete' size='large' color='teal' />
       </section>
     </Container>
   )
